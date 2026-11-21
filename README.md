@@ -1,0 +1,49 @@
+Walmart M5 Demand Forecasting (Python)
+
+Forecasting weekly demand for the 20 best-selling food products in a Walmart store in Texas, and comparing a simple baseline against a seasonal model.
+
+Business question
+
+How much of each product will sell in the coming weeks? Over-forecasting ties up cash in excess inventory. Under-forecasting causes empty shelves and lost sales. A reliable forecast is the starting point for safety stock and reorder decisions.
+
+Data
+
+M5 Forecasting Accuracy on Kaggle: about 5 years of real daily Walmart sales (2011 to 2016) for 3,049 products across 10 stores.
+
+This project uses store TX_1, category FOODS, and the top 20 products by total units sold.
+
+The data files are not included in this repo. Download sales_train_evaluation.csv and calendar.csv from Kaggle and put them in the same folder as the notebook.
+
+Approach
+Prepare the data: reshape daily sales from wide to long, join the calendar, and sum daily units into Walmart weeks (Saturday to Friday). Incomplete weeks are removed so a partial week doesn't look like a sales drop.
+Explore patterns: 4-week moving averages and seasonal decomposition (trend, yearly seasonality, noise).
+Hold out the last 12 weeks as a test period the models never see.
+Forecast with two methods:
+Moving average: average of the last 4 weeks (baseline)
+Holt-Winters exponential smoothing: damped trend plus a 52-week seasonal pattern
+Score each forecast against actual sales with MAE, WAPE, MAPE and bias, and pick the better method for each product.
+Results
+Metric	Moving average	Holt-Winters
+Average WAPE (20 SKUs)	[X]%	[X]%
+Products won	[X] of 20	[X] of 20
+
+Key findings
+
+[Finding 1, e.g. which method won more often and why]
+[Finding 2, e.g. bias: did forecasts run high or low?]
+Top seller FOODS_3_586 dropped about 25% in volume between 2012 and 2013, then stabilized, with a strong summer peak each year.
+Accuracy metrics
+Metric	Meaning
+MAE	Average units missed per week
+WAPE	Total miss ÷ total sales (main score; works with zero-sales weeks)
+MAPE	Average % miss per week (skips zero-sales weeks)
+Bias	Positive = forecast too high (excess stock); negative = too low (stockouts)
+Next steps
+Add a seasonal naive method and test calendar effects (holidays, SNAP days) and price
+Use forecast error to set safety stock and reorder points by service level
+How to run
+pip install -r requirements.txt
+jupyter notebook M5_Week1_Demand_Forecasting.ipynb
+Tools
+
+Python, pandas, statsmodels, matplotlib, Jupyter
