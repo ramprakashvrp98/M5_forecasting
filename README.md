@@ -2,8 +2,6 @@
 
 Forecasting weekly demand for the 20 best-selling food products in a Walmart store in Texas, comparing three forecasting methods, and turning the forecasts into safety stock and reorder points.
 
-![Forecast vs actual](forecast_vs_actual.png)
-
 ## Business question
 How much of each product will sell in the coming weeks, and how much stock should the store hold? Over-forecasting ties up cash in excess inventory. Under-forecasting causes empty shelves and lost sales.
 
