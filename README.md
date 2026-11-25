@@ -8,8 +8,6 @@ Forecasting weekly demand for the 20 best-selling food products in a Walmart sto
 - Found that raising the service level from 95% to 99% needs **41% more safety stock**
 - Measured demand drivers: SNAP days lift daily sales by about **9%**, and Easter by about **75%**
 
-![Forecast vs actual](forecast_vs_actual.png)
-
 ## Business question
 How much of each product will sell in the coming weeks, and how much stock should the store hold? Over-forecasting ties up cash in excess inventory. Under-forecasting causes empty shelves and lost sales.
 
